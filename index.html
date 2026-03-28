@@ -614,6 +614,78 @@
   .ec-row .ec-name { font-weight: 700; color: #9F1239; }
   .ec-row .ec-num { font-family: monospace; font-size: 15px; font-weight: 700; color: var(--gray-900); }
 
+  /* ============ UNIFIED TIMELINE ============ */
+  .utl { display: flex; flex-direction: column; gap: 8px; }
+
+  .utl-item { display: flex; gap: 12px; align-items: flex-start; }
+
+  .utl-time-col {
+    min-width: 78px;
+    max-width: 78px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--gray-700);
+    padding-top: 10px;
+    text-align: right;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  .utl-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 16px;
+    padding-top: 10px;
+  }
+
+  .utl-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2.5px solid white;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+  .utl-item.tour .utl-dot { box-shadow: 0 0 0 2px var(--green); }
+  .utl-item.all .utl-dot { box-shadow: 0 0 0 2px var(--orange); }
+
+  .utl-card {
+    flex: 1;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border-left: 4px solid var(--blue);
+    background: var(--blue-light);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .utl-item.tour .utl-card { border-color: var(--green); background: var(--green-light); }
+  .utl-item.all .utl-card { border-color: var(--orange); background: #FFF7ED; }
+
+  .utl-who {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 9px;
+    border-radius: 100px;
+    margin-bottom: 5px;
+    background: var(--blue);
+    color: white;
+  }
+  .utl-item.tour .utl-who { background: var(--green); }
+  .utl-item.all .utl-who { background: var(--orange); }
+
+  .utl-note {
+    font-size: 12px;
+    background: white;
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin-top: 6px;
+    display: inline-block;
+    color: var(--gray-700);
+  }
+
   /* ============ LINK BUTTONS ============ */
   .link-btn {
     display: inline-flex;
@@ -944,45 +1016,39 @@
       <div>3日間のタイムスケジュール</div>
     </div>
 
+    <!-- 凡例 -->
+    <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;font-size:12px;font-weight:700;">
+      <span style="background:var(--orange);color:white;padding:4px 12px;border-radius:100px;">👨‍👩‍👧‍👦 全員（8名）</span>
+      <span style="background:var(--blue);color:white;padding:4px 12px;border-radius:100px;">🏔️ 登山隊（4名）</span>
+      <span style="background:var(--green);color:white;padding:4px 12px;border-radius:100px;">🌸 観光隊（4名）</span>
+    </div>
+
     <!-- Day 1 -->
     <div class="day-block">
-      <div class="day-header">
-        🚗 8/7（金） 移動日 〜 旅のはじまり！
-      </div>
-      <div class="teams-row">
-        <div class="team-col climb">
-          <div class="team-label label-climb">🏔️ 登山隊（4名）</div>
-          <div class="timeline">
-            <div class="tl-item">
-              <div class="tl-time">6:00〜7:00</div>
-              <div class="tl-text">🏠 <strong>神戸 出発</strong><br>全員いっしょに出発！</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">12:00〜13:00</div>
-              <div class="tl-text">🍜 <strong>富士宮 到着</strong><br>昼食（富士宮やきそば！）</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">14:00〜</div>
-              <div class="tl-text">🏨 <strong>宿泊先チェックイン</strong><br>翌日に備えて早めに休養</div>
-              <div class="tl-note">⚠️ 高度順応のため早寝推奨！</div>
-            </div>
+      <div class="day-header">🚗 8/7（金） 移動日 〜 旅のはじまり！</div>
+      <div class="utl">
+        <div class="utl-item all">
+          <div class="utl-time-col">6:00〜<br>7:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">👨‍👩‍👧‍👦 全員（8名）</div>
+            <div>🏠 <strong>神戸 出発</strong><br>全員いっしょに車で出発！</div>
           </div>
         </div>
-        <div class="team-col tour">
-          <div class="team-label label-tour">🌸 観光隊（4名）</div>
-          <div class="timeline">
-            <div class="tl-item">
-              <div class="tl-time">6:00〜7:00</div>
-              <div class="tl-text">🏠 <strong>神戸 出発</strong><br>全員いっしょに出発！</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">12:00〜13:00</div>
-              <div class="tl-text">🍜 <strong>富士宮 到着</strong><br>昼食（富士宮やきそば！）</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">14:00〜</div>
-              <div class="tl-text">🏨 <strong>宿泊先チェックイン</strong><br>明日の観光スポットを計画</div>
-            </div>
+        <div class="utl-item all">
+          <div class="utl-time-col">12:00〜<br>13:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">👨‍👩‍👧‍👦 全員（8名）</div>
+            <div>🍜 <strong>富士宮 到着・昼食</strong><br>名物・富士宮やきそばで腹ごしらえ！</div>
+          </div>
+        </div>
+        <div class="utl-item all">
+          <div class="utl-time-col">14:00〜</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">👨‍👩‍👧‍👦 全員（8名）</div>
+            <div>🏨 <strong>宿泊先チェックイン・休養</strong><br>翌日に備えてゆっくり体を休めよう。<br>登山隊は高度順応のため早寝推奨！</div>
           </div>
         </div>
       </div>
@@ -990,64 +1056,95 @@
 
     <!-- Day 2 -->
     <div class="day-block">
-      <div class="day-header day2">
-        🔥 8/8（土） 本番！ 〜 それぞれの冒険へ
-      </div>
-      <div class="teams-row">
-        <div class="team-col climb">
-          <div class="team-label label-climb">🏔️ 登山隊（4名）</div>
-          <div class="timeline">
-            <div class="tl-item">
-              <div class="tl-time">4:30</div>
-              <div class="tl-text">⏰ <strong>超早起き！出発準備</strong><br>朝食・準備・装備チェック</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">5:30〜6:00</div>
-              <div class="tl-text">🚌 <strong>シャトルバスで5合目へ</strong><br>※マイカー規制のためバス必須</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">6:30〜7:00</div>
-              <div class="tl-text">🌬️ <strong>5合目で高度順応（30分）</strong><br>準備体操・水分補給</div>
-              <div class="tl-note">⚠️ 急がず身体を慣らしてから！</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">7:00</div>
-              <div class="tl-text">🥾 <strong>登山スタート！</strong></div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">10:00〜12:00</div>
-              <div class="tl-text">🏠 <strong>7〜8合目 到着・宿泊手続き</strong></div>
-              <div class="tl-note">🏨 <a href="http://www.goraikousansou.com/" target="_blank" rel="noopener" style="color:var(--blue-dark);font-weight:700;">御来光山荘（7合目）</a> または<br><a href="http://www.fuji8.com/" target="_blank" rel="noopener" style="color:var(--blue-dark);font-weight:700;">池田館（8合目）</a></div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">14:00〜16:00</div>
-              <div class="tl-text">😴 <strong>山小屋で休憩・仮眠</strong><br>翌日のご来光に備えて体力温存！</div>
-            </div>
+      <div class="day-header day2">🔥 8/8（土） 本番！ 〜 それぞれの冒険へ</div>
+      <div class="utl">
+        <div class="utl-item climb">
+          <div class="utl-time-col">4:30</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🏔️ 登山隊</div>
+            <div>⏰ <strong>超早起き！出発準備</strong><br>朝食・準備・装備チェック</div>
           </div>
         </div>
-        <div class="team-col tour">
-          <div class="team-label label-tour">🌸 観光隊（4名）</div>
-          <div class="timeline">
-            <div class="tl-item">
-              <div class="tl-time">8:30〜9:00</div>
-              <div class="tl-text">🍳 <strong>朝食・のんびり出発</strong><br>子供たちのペースで♪</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">9:30〜12:00</div>
-              <div class="tl-text">🐄 <strong>まかいの牧場</strong><br>乳搾り・動物ふれあい体験！</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">13:00</div>
-              <div class="tl-text">🍔 <strong>ランチ</strong></div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">14:00〜16:30</div>
-              <div class="tl-text">🏞️ <strong>田貫湖 散策</strong><br>富士山を鏡映しにする絶景の湖！</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">17:00〜</div>
-              <div class="tl-text">🏨 <strong>宿泊先で夕食・就寝</strong></div>
-            </div>
+        <div class="utl-item climb">
+          <div class="utl-time-col">5:30〜<br>6:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🏔️ 登山隊</div>
+            <div>🚌 <strong>シャトルバスで5合目へ</strong><br>マイカー規制のためバス必須</div>
+          </div>
+        </div>
+        <div class="utl-item climb">
+          <div class="utl-time-col">6:30〜<br>7:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🏔️ 登山隊</div>
+            <div>🌬️ <strong>5合目で高度順応（30分）</strong><br>準備体操・水分補給。急がず身体を慣らしてから！</div>
+          </div>
+        </div>
+        <div class="utl-item climb">
+          <div class="utl-time-col">7:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🏔️ 登山隊</div>
+            <div>🥾 <strong>登山スタート！</strong></div>
+          </div>
+        </div>
+        <div class="utl-item tour">
+          <div class="utl-time-col">8:30〜<br>9:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🌸 観光隊</div>
+            <div>🍳 <strong>朝食・のんびり出発</strong><br>子供たちのペースで♪</div>
+          </div>
+        </div>
+        <div class="utl-item tour">
+          <div class="utl-time-col">9:30〜<br>12:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🌸 観光隊</div>
+            <div>🐄 <strong>まかいの牧場</strong><br>乳搾り・動物ふれあい体験！子供が大喜び間違いなし。</div>
+          </div>
+        </div>
+        <div class="utl-item climb">
+          <div class="utl-time-col">10:00〜<br>12:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🏔️ 登山隊</div>
+            <div>🏠 <strong>7〜8合目 到着・宿泊手続き</strong></div>
+            <div class="utl-note">🏨 <a href="http://www.goraikousansou.com/" target="_blank" rel="noopener" style="color:var(--blue-dark);font-weight:700;">御来光山荘（7合目）</a> または <a href="http://www.fuji8.com/" target="_blank" rel="noopener" style="color:var(--blue-dark);font-weight:700;">池田館（8合目）</a></div>
+          </div>
+        </div>
+        <div class="utl-item tour">
+          <div class="utl-time-col">13:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🌸 観光隊</div>
+            <div>🍔 <strong>ランチ</strong></div>
+          </div>
+        </div>
+        <div class="utl-item climb">
+          <div class="utl-time-col">14:00〜<br>16:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🏔️ 登山隊</div>
+            <div>😴 <strong>山小屋で休憩・仮眠</strong><br>翌日のご来光に備えて体力温存！</div>
+          </div>
+        </div>
+        <div class="utl-item tour">
+          <div class="utl-time-col">14:00〜<br>16:30</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🌸 観光隊</div>
+            <div>🏞️ <strong>田貫湖 散策</strong><br>富士山を鏡映しにする絶景の湖！夏でも涼しくて最高。</div>
+          </div>
+        </div>
+        <div class="utl-item tour">
+          <div class="utl-time-col">17:00〜</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🌸 観光隊</div>
+            <div>🏨 <strong>宿泊先で夕食・就寝</strong></div>
           </div>
         </div>
       </div>
@@ -1055,71 +1152,94 @@
 
     <!-- Day 3 -->
     <div class="day-block">
-      <div class="day-header day3">
-        🎉 8/9（日） フィナーレ！ 〜 全員合流・打ち上げ
-      </div>
-      <div class="teams-row">
-        <div class="team-col climb">
-          <div class="team-label label-climb">🏔️ 登山隊（4名）</div>
-          <div class="timeline">
-            <div class="tl-item">
-              <div class="tl-time">深夜1:00〜2:00</div>
-              <div class="tl-text">⭐ <strong>起床・山頂へ出発</strong><br>ヘッドランプで夜の登山開始</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">4:30〜5:00</div>
-              <div class="tl-text">🌅 <strong>山頂 or 9合目付近でご来光！</strong><br>日本一高い場所で迎える夜明け✨</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">5:00〜6:00</div>
-              <div class="tl-text">🎌 <strong>山頂（3,776m）登頂！</strong><br>剣ヶ峰・お鉢めぐりも可能</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">6:30〜</div>
-              <div class="tl-text">🥾 <strong>下山開始</strong><br>慎重に・ゆっくり下りる</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">10:00〜12:00</div>
-              <div class="tl-text">✅ <strong>5合目 帰還！</strong><br>下山完了・シャトルバス乗車</div>
-            </div>
+      <div class="day-header day3">🎉 8/9（日） フィナーレ！ 〜 全員合流・打ち上げ</div>
+      <div class="utl">
+        <div class="utl-item climb">
+          <div class="utl-time-col">深夜<br>1:00〜2:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🏔️ 登山隊</div>
+            <div>⭐ <strong>起床・山頂へ出発</strong><br>ヘッドランプで夜の登山開始！</div>
           </div>
         </div>
-        <div class="team-col tour">
-          <div class="team-label label-tour">🌸 観光隊（4名）</div>
-          <div class="timeline">
-            <div class="tl-item">
-              <div class="tl-time">8:00〜</div>
-              <div class="tl-text">🍳 <strong>朝食・ゆっくり準備</strong></div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">9:00〜11:30</div>
-              <div class="tl-text">🌊 <strong>白糸の滝 or 浅間大社</strong><br>午前中に最後の観光を楽しむ</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">12:30〜</div>
-              <div class="tl-text">🚌 <strong>5合目へ向けて出発</strong><br>シャトルバスで合流場所へ</div>
-            </div>
+        <div class="utl-item climb">
+          <div class="utl-time-col">4:30〜<br>5:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🏔️ 登山隊</div>
+            <div>🌅 <strong>ご来光！</strong><br>日本一高い場所で迎える夜明け✨</div>
           </div>
         </div>
-      </div>
-      <!-- 合流ボックス -->
-      <div class="merge-box">
-        <div class="big">🎉 13:00 ── 5合目で全員合流！！ 🎉</div>
-        <p>登山隊・観光隊それぞれの「大冒険」を語り合おう！<br>そしてみんなで打ち上げへGO 🚗💨</p>
-      </div>
-      <br>
-      <div class="teams-row" style="margin-top:0">
-        <div class="team-col all" style="grid-column: 1 / -1">
-          <div class="team-label label-all">🍻 全員集合！</div>
-          <div class="timeline">
-            <div class="tl-item">
-              <div class="tl-time">15:00〜17:00</div>
-              <div class="tl-text">🐟 <strong>富士エリアの名店でウナギ打ち上げ！</strong><br>8名全員でお疲れ様ディナー🎊</div>
-            </div>
-            <div class="tl-item">
-              <div class="tl-time">18:00〜</div>
-              <div class="tl-text">🏠 <strong>神戸へ向けて帰路</strong><br>夕方出発で渋滞を避けて帰宅</div>
-            </div>
+        <div class="utl-item climb">
+          <div class="utl-time-col">5:00〜<br>6:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🏔️ 登山隊</div>
+            <div>🎌 <strong>山頂（3,776m）登頂！</strong><br>剣ヶ峰・お鉢めぐりも可能</div>
+          </div>
+        </div>
+        <div class="utl-item climb">
+          <div class="utl-time-col">6:30〜</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🏔️ 登山隊</div>
+            <div>🥾 <strong>下山開始</strong><br>慎重に・ゆっくり下りる</div>
+          </div>
+        </div>
+        <div class="utl-item tour">
+          <div class="utl-time-col">8:00〜</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🌸 観光隊</div>
+            <div>🍳 <strong>朝食・ゆっくり準備</strong></div>
+          </div>
+        </div>
+        <div class="utl-item tour">
+          <div class="utl-time-col">9:00〜<br>11:30</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🌸 観光隊</div>
+            <div>🌊 <strong>白糸の滝 or 浅間大社</strong><br>午前中に最後の観光を楽しむ</div>
+          </div>
+        </div>
+        <div class="utl-item climb">
+          <div class="utl-time-col">10:00〜<br>12:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🏔️ 登山隊</div>
+            <div>✅ <strong>5合目 帰還！</strong><br>下山完了・シャトルバス乗車</div>
+          </div>
+        </div>
+        <div class="utl-item tour">
+          <div class="utl-time-col">12:30〜</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">🌸 観光隊</div>
+            <div>🚌 <strong>5合目へ向けて出発</strong><br>シャトルバスで合流場所へ</div>
+          </div>
+        </div>
+        <div class="utl-item all">
+          <div class="utl-time-col">13:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">👨‍👩‍👧‍👦 全員（8名）</div>
+            <div>🎉 <strong>5合目で全員合流！！</strong><br>登山組・観光組それぞれの「大冒険」を語り合おう！</div>
+          </div>
+        </div>
+        <div class="utl-item all">
+          <div class="utl-time-col">15:00〜<br>17:00</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">👨‍👩‍👧‍👦 全員（8名）</div>
+            <div>🐟 <strong>富士エリアの名店でウナギ打ち上げ！</strong><br>8名全員でお疲れ様ディナー🎊</div>
+          </div>
+        </div>
+        <div class="utl-item all">
+          <div class="utl-time-col">18:00〜</div>
+          <div class="utl-line"><div class="utl-dot"></div></div>
+          <div class="utl-card">
+            <div class="utl-who">👨‍👩‍👧‍👦 全員（8名）</div>
+            <div>🏠 <strong>神戸へ向けて帰路</strong><br>夕方出発で渋滞を避けて帰宅！</div>
           </div>
         </div>
       </div>
