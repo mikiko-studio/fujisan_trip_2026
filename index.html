@@ -827,9 +827,116 @@
   }
 
   .nav-inner a:hover { color: var(--blue); border-color: var(--blue); }
+
+  /* ============ PASSWORD GATE ============ */
+  #pw-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #1E3A8A 0%, #1d4ed8 40%, #0369a1 100%);
+    padding: 24px;
+  }
+  #pw-gate.hidden { display: none; }
+
+  .pw-box {
+    background: white;
+    border-radius: 24px;
+    padding: 40px 32px;
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: pw-pop 0.35s cubic-bezier(0.34,1.56,0.64,1) both;
+  }
+  @keyframes pw-pop {
+    from { opacity:0; transform: scale(0.85) translateY(20px); }
+    to   { opacity:1; transform: scale(1) translateY(0); }
+  }
+
+  .pw-fuji { font-size: 64px; margin-bottom: 8px; line-height: 1; }
+  .pw-title { font-size: 20px; font-weight: 900; color: #1E3A8A; margin-bottom: 4px; }
+  .pw-sub { font-size: 13px; color: #6B7280; margin-bottom: 28px; }
+
+  .pw-input-wrap { position: relative; margin-bottom: 14px; }
+  .pw-input-wrap input {
+    width: 100%;
+    padding: 14px 44px 14px 18px;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #111827;
+  }
+  .pw-input-wrap input:focus { border-color: #2563EB; }
+  .pw-input-wrap input.error { border-color: #EF4444; animation: pw-shake 0.3s ease; }
+  @keyframes pw-shake {
+    0%,100%{ transform:translateX(0) }
+    25%    { transform:translateX(-8px) }
+    75%    { transform:translateX(8px) }
+  }
+  .pw-toggle {
+    position: absolute;
+    right: 14px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none;
+    cursor: pointer; font-size: 18px;
+    color: #9CA3AF; padding: 0;
+  }
+
+  .pw-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #2563EB, #1d4ed8);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+  }
+  .pw-btn:hover  { opacity: 0.9; }
+  .pw-btn:active { transform: scale(0.98); }
+
+  .pw-error {
+    font-size: 13px;
+    color: #EF4444;
+    font-weight: 700;
+    margin-top: 10px;
+    min-height: 18px;
+    transition: opacity 0.2s;
+  }
+  .pw-error.invisible { opacity: 0; }
+
+  .pw-hint { font-size: 11px; color: #9CA3AF; margin-top: 20px; }
 </style>
 </head>
 <body>
+
+<!-- PASSWORD GATE -->
+<div id="pw-gate">
+  <div class="pw-box">
+    <div class="pw-fuji">🗻</div>
+    <div class="pw-title">富士山登山旅行 2026</div>
+    <div class="pw-sub">旅のしおりを見るにはパスワードを入力してください</div>
+    <div class="pw-input-wrap">
+      <input type="password" id="pw-input" placeholder="パスワード" autocomplete="current-password" />
+      <button class="pw-toggle" id="pw-toggle" type="button" title="表示/非表示">👁</button>
+    </div>
+    <button class="pw-btn" id="pw-submit" type="button">しおりを開く →</button>
+    <div class="pw-error invisible" id="pw-error">パスワードが違います 🔒</div>
+    <div class="pw-hint">※ このページはグループ内限定公開です</div>
+  </div>
+</div>
 
 <div class="progress-bar" id="progressBar"></div>
 
@@ -1662,6 +1769,48 @@
     const docHeight = document.body.scrollHeight - window.innerHeight;
     bar.style.width = (scrollTop / docHeight * 100) + '%';
   });
+</script>
+
+<script>
+(function () {
+  const CORRECT = 'Fuji2026';
+  const SESSION_KEY = 'fuji2026_auth';
+  const gate  = document.getElementById('pw-gate');
+  const input = document.getElementById('pw-input');
+  const btn   = document.getElementById('pw-submit');
+  const errEl = document.getElementById('pw-error');
+  const toggle= document.getElementById('pw-toggle');
+
+  // セッション中は再入力不要
+  if (sessionStorage.getItem(SESSION_KEY) === '1') {
+    gate.classList.add('hidden');
+  }
+
+  function attempt() {
+    if (input.value === CORRECT) {
+      sessionStorage.setItem(SESSION_KEY, '1');
+      gate.style.transition = 'opacity 0.4s';
+      gate.style.opacity = '0';
+      setTimeout(() => gate.classList.add('hidden'), 400);
+    } else {
+      errEl.classList.remove('invisible');
+      input.classList.add('error');
+      input.value = '';
+      setTimeout(() => input.classList.remove('error'), 400);
+    }
+  }
+
+  btn.addEventListener('click', attempt);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') attempt(); });
+
+  toggle.addEventListener('click', () => {
+    const isText = input.type === 'text';
+    input.type  = isText ? 'password' : 'text';
+    toggle.textContent = isText ? '👁' : '🙈';
+  });
+
+  input.addEventListener('input', () => errEl.classList.add('invisible'));
+})();
 </script>
 </body>
 </html>
