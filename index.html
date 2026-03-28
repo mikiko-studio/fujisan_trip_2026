@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>富士山登山旅行2026 🗻 旅のしおり</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #2563EB;
+    --blue-light: #DBEAFE;
+    --blue-dark: #1E3A8A;
+    --green: #059669;
+    --green-light: #D1FAE5;
+    --orange: #EA580C;
+    --orange-light: #FED7AA;
+    --white: #F8FAFC;
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --shadow: 0 4px 20px rgba(0,0,0,0.10);
+    --shadow-lg: 0 8px 40px rgba(0,0,0,0.15);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    color: var(--gray-900);
+    background: #F0F4FF;
+    line-height: 1.7;
+  }
+
+  /* ============ HEADER ============ */
+  header {
+    background: linear-gradient(160deg, #0F2460 0%, #1E3A8A 40%, #2563EB 70%, #38BDF8 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px 80px;
+    text-align: center;
+    color: white;
+  }
+
+  /* 富士山シルエット */
+  .fuji-mountain {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    pointer-events: none;
+  }
+
+  /* 星 */
+  header::before {
+    content: '★ ✦ ★ ✦ ★ ✦ ★';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 12px;
+    white-space: nowrap;
+  }
+
+  .header-inner { position: relative; z-index: 2; padding-bottom: 60px; }
+
+  .header-tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 100px;
+    padding: 6px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    backdrop-filter: blur(8px);
+  }
+
+  header h1 {
+    font-family: 'Dela Gothic One', 'Noto Sans JP', sans-serif;
+    font-size: clamp(28px, 8vw, 52px);
+    line-height: 1.2;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    margin-bottom: 12px;
+  }
+
+  header p.subtitle {
+    font-size: clamp(15px, 4vw, 20px);
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 28px;
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .badge {
+    background: rgba(255,255,255,0.18);
+    border: 1.5px solid rgba(255,255,255,0.45);
+    border-radius: 100px;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+  }
+
+  /* 富士山SVGシルエット */
+  .fuji-svg { display: block; width: 100%; }
+
+  /* ============ MAIN LAYOUT ============ */
+  main { max-width: 720px; margin: 0 auto; padding: 0 16px 60px; }
+
+  section {
+    background: white;
+    border-radius: var(--radius);
+    padding: 32px 24px;
+    margin: 24px 0;
+    box-shadow: var(--shadow);
+  }
+
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: clamp(18px, 5vw, 24px);
+    color: var(--blue-dark);
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 3px solid var(--blue-light);
+  }
+
+  .section-title .icon {
+    width: 42px;
+    height: 42px;
+    background: var(--blue);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    color: white;
+  }
+
+  /* ============ ROUTE REASON CARDS ============ */
+  .reason-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+
+  @media (max-width: 480px) {
+    .reason-grid { grid-template-columns: 1fr; }
+  }
+
+  .reason-card {
+    background: var(--blue-light);
+    border-radius: var(--radius-sm);
+    padding: 18px 16px;
+    border-left: 4px solid var(--blue);
+  }
+
+  .reason-card .r-icon { font-size: 28px; margin-bottom: 8px; }
+  .reason-card h3 { font-size: 15px; font-weight: 700; color: var(--blue-dark); margin-bottom: 6px; }
+  .reason-card p { font-size: 13px; color: var(--gray-700); line-height: 1.6; }
+
+  /* 標高図 */
+  .altitude-chart {
+    background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    overflow-x: auto;
+  }
+
+  .altitude-chart h4 { font-size: 14px; font-weight: 700; color: var(--blue-dark); margin-bottom: 16px; text-align: center; }
+
+  .chart-wrap { min-width: 300px; }
+
+  .altitude-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    height: 140px;
+    border-bottom: 2px solid var(--blue);
+    border-left: 2px solid var(--blue);
+    padding: 0 4px 0 4px;
+    position: relative;
+  }
+
+  .bar-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+  }
+
+  .bar {
+    width: 44px;
+    background: linear-gradient(to top, var(--blue), #60A5FA);
+    border-radius: 6px 6px 0 0;
+    position: relative;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .bar:hover { opacity: 0.85; }
+
+  .bar.summit { background: linear-gradient(to top, var(--orange), #FCD34D); }
+
+  .bar-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    text-align: center;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .bar-alt {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    white-space: nowrap;
+    background: white;
+    padding: 2px 6px;
+    border-radius: 100px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  }
+
+  .bar.summit .bar-alt { color: var(--orange); }
+
+  .arrow-path {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--gray-700);
+    font-weight: 500;
+  }
+
+  .arrow-path span { color: var(--blue); font-weight: 700; }
+
+  /* ============ ACCESS TABLE ============ */
+  .access-table-wrap { overflow-x: auto; }
+
+  table.access-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 400px;
+  }
+
+  .access-table th {
+    background: var(--blue-dark);
+    color: white;
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  .access-table th:first-child { border-radius: 8px 0 0 0; }
+  .access-table th:last-child { border-radius: 0 8px 0 0; }
+
+  .access-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-200);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .access-table tr:nth-child(even) td { background: var(--gray-50); }
+  .access-table tr:hover td { background: var(--blue-light); }
+
+  .badge-car { background: var(--orange-light); color: #7C2D12; border-radius: 100px; padding: 3px 10px; font-size: 12px; font-weight: 700; display: inline-block; }
+  .badge-train { background: var(--green-light); color: #064E3B; border-radius: 100px; padding: 3px 10px; font-size: 12px; font-weight: 700; display: inline-block; }
+
+  .tip-box {
+    background: #FFFBEB;
+    border: 1.5px solid #FCD34D;
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    margin-top: 16px;
+    font-size: 14px;
+  }
+  .tip-box strong { color: #92400E; }
+
+  /* ============ SCHEDULE ============ */
+  .day-block { margin-bottom: 32px; }
+  .day-header {
+    background: linear-gradient(90deg, var(--blue-dark), var(--blue));
+    color: white;
+    border-radius: var(--radius-sm);
+    padding: 12px 18px;
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 17px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .day-header.day2 { background: linear-gradient(90deg, #065F46, var(--green)); }
+  .day-header.day3 { background: linear-gradient(90deg, #7C2D12, var(--orange)); }
+
+  .teams-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  @media (max-width: 480px) { .teams-row { grid-template-columns: 1fr; } }
+
+  .team-col { }
+
+  .team-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .label-climb { background: var(--blue-light); color: var(--blue-dark); }
+  .label-tour { background: var(--green-light); color: #065F46; }
+  .label-all { background: var(--orange-light); color: #7C2D12; }
+
+  .timeline { position: relative; padding-left: 24px; }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: var(--gray-200);
+  }
+
+  .tl-item {
+    position: relative;
+    margin-bottom: 12px;
+  }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background: var(--blue);
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--blue);
+  }
+
+  .team-col.tour .tl-item::before { background: var(--green); box-shadow: 0 0 0 2px var(--green); }
+  .team-col.all .tl-item::before { background: var(--orange); box-shadow: 0 0 0 2px var(--orange); }
+
+  .tl-time { font-size: 11px; font-weight: 700; color: var(--blue); margin-bottom: 2px; }
+  .team-col.tour .tl-time { color: var(--green); }
+  .team-col.all .tl-time { color: var(--orange); }
+
+  .tl-text { font-size: 14px; line-height: 1.6; color: var(--gray-700); }
+  .tl-text strong { color: var(--gray-900); }
+
+  .tl-note {
+    font-size: 12px;
+    background: var(--blue-light);
+    color: var(--blue-dark);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-top: 6px;
+    display: inline-block;
+  }
+
+  .team-col.tour .tl-note { background: var(--green-light); color: #065F46; }
+
+  .merge-box {
+    background: linear-gradient(135deg, #FFF7ED, #FEE2E2);
+    border: 2px solid var(--orange);
+    border-radius: var(--radius-sm);
+    padding: 18px;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .merge-box .big { font-family: 'Dela Gothic One', sans-serif; font-size: 20px; color: var(--orange); }
+  .merge-box p { font-size: 14px; margin-top: 6px; color: var(--gray-700); }
+
+  /* ============ CHECKLIST ============ */
+  .check-group { margin-bottom: 22px; }
+
+  .check-group-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--blue-dark);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--blue-light);
+    border-radius: var(--radius-sm);
+  }
+
+  .check-group.green .check-group-title { background: var(--green-light); color: #065F46; }
+  .check-group.orange .check-group-title { background: var(--orange-light); color: #7C2D12; }
+
+  .check-list { display: flex; flex-direction: column; gap: 8px; }
+
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    padding: 8px 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+
+  .check-item:hover { background: var(--gray-100); }
+
+  .check-item input[type="checkbox"] { display: none; }
+
+  .check-box {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--gray-200);
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin-top: 1px;
+    background: white;
+  }
+
+  .check-item input:checked ~ .check-box {
+    background: var(--blue);
+    border-color: var(--blue);
+  }
+
+  .check-item input:checked ~ .check-box::after {
+    content: '✓';
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .check-item input:checked ~ .check-text { text-decoration: line-through; color: #9CA3AF; }
+
+  .check-text { font-size: 14px; line-height: 1.6; color: var(--gray-700); }
+  .check-text .tag {
+    display: inline-block;
+    background: var(--orange-light);
+    color: #7C2D12;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 7px;
+    border-radius: 100px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  .advice-box {
+    background: #FFFBEB;
+    border: 1.5px dashed #F59E0B;
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: #78350F;
+  }
+
+  .advice-box strong { display: block; margin-bottom: 6px; font-size: 14px; }
+
+  /* ============ SPOTS ============ */
+  .spots-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  @media (max-width: 480px) { .spots-grid { grid-template-columns: 1fr; } }
+
+  .spot-card {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1.5px solid var(--gray-200);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .spot-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+  .spot-thumb {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+  }
+
+  .spot-thumb.s1 { background: linear-gradient(135deg, #D1FAE5, #6EE7B7); }
+  .spot-thumb.s2 { background: linear-gradient(135deg, #DBEAFE, #93C5FD); }
+  .spot-thumb.s3 { background: linear-gradient(135deg, #E0F2FE, #7DD3FC); }
+  .spot-thumb.s4 { background: linear-gradient(135deg, #FEE2E2, #FCA5A5); }
+
+  .spot-body { padding: 14px; }
+  .spot-body h3 { font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
+  .spot-body p { font-size: 12px; color: var(--gray-700); line-height: 1.6; }
+  .spot-tag { display: inline-block; background: var(--green-light); color: #065F46; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 100px; margin-bottom: 8px; }
+
+  /* ============ UNAGI ============ */
+  .unagi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  @media (max-width: 480px) { .unagi-grid { grid-template-columns: 1fr; } }
+
+  .unagi-card {
+    background: linear-gradient(135deg, #FFF7ED, #FEE2E2);
+    border: 1.5px solid #FCA5A5;
+    border-radius: var(--radius-sm);
+    padding: 16px;
+    transition: transform 0.2s;
+  }
+
+  .unagi-card:hover { transform: translateY(-2px); }
+  .unagi-card .u-emoji { font-size: 30px; margin-bottom: 8px; }
+  .unagi-card h3 { font-size: 15px; font-weight: 700; color: #7C2D12; margin-bottom: 6px; }
+  .unagi-card p { font-size: 13px; color: var(--gray-700); line-height: 1.6; }
+  .unagi-card .u-area { font-size: 12px; font-weight: 700; color: var(--orange); margin-top: 8px; }
+
+  /* ============ SAFETY ============ */
+  .safety-cards { display: flex; flex-direction: column; gap: 16px; }
+
+  .safety-card {
+    border-radius: var(--radius-sm);
+    padding: 18px;
+    border-left: 4px solid;
+  }
+
+  .safety-card.ams { background: #EFF6FF; border-color: var(--blue); }
+  .safety-card.bus { background: #F0FDF4; border-color: var(--green); }
+  .safety-card.kids { background: #FFFBEB; border-color: #F59E0B; }
+  .safety-card.emergency { background: #FFF1F2; border-color: #E11D48; }
+
+  .safety-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .safety-card.ams h3 { color: var(--blue-dark); }
+  .safety-card.bus h3 { color: #065F46; }
+  .safety-card.kids h3 { color: #78350F; }
+  .safety-card.emergency h3 { color: #9F1239; }
+
+  .safety-card ul { padding-left: 18px; }
+  .safety-card li { font-size: 14px; color: var(--gray-700); margin-bottom: 6px; line-height: 1.6; }
+
+  .emergency-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .ec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+
+  .ec-row .ec-name { font-weight: 700; color: #9F1239; }
+  .ec-row .ec-num { font-family: monospace; font-size: 15px; font-weight: 700; color: var(--gray-900); }
+
+  /* ============ FOOTER ============ */
+  footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6B7280;
+    font-size: 13px;
+  }
+
+  footer .fuji-footer { font-size: 32px; margin-bottom: 10px; }
+
+  /* ============ ANIMATIONS ============ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  section {
+    animation: fadeUp 0.5s ease both;
+  }
+
+  section:nth-child(1) { animation-delay: 0.1s; }
+  section:nth-child(2) { animation-delay: 0.15s; }
+  section:nth-child(3) { animation-delay: 0.2s; }
+  section:nth-child(4) { animation-delay: 0.25s; }
+  section:nth-child(5) { animation-delay: 0.3s; }
+  section:nth-child(6) { animation-delay: 0.35s; }
+  section:nth-child(7) { animation-delay: 0.4s; }
+  section:nth-child(8) { animation-delay: 0.45s; }
+
+  /* ============ PROGRESS ============ */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--orange), var(--blue));
+    z-index: 9999;
+    transition: width 0.1s;
+    width: 0%;
+  }
+
+  /* ============ NAV ============ */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sticky-nav::-webkit-scrollbar { display: none; }
+
+  .nav-inner {
+    display: flex;
+    gap: 0;
+    min-width: max-content;
+    padding: 0 16px;
+  }
+
+  .nav-inner a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gray-700);
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-inner a:hover { color: var(--blue); border-color: var(--blue); }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="header-tag">🗾 TRAVEL GUIDE 2026</div>
+    <h1>富士山登山旅行2026 🗻</h1>
+    <p class="subtitle">神戸から富士宮へ！夏の大冒険</p>
+    <div class="badges">
+      <span class="badge">📅 8月7日〜9日（2泊3日）</span>
+      <span class="badge">👥 総勢8名</span>
+      <span class="badge">🏔️ 富士宮ルート</span>
+      <span class="badge">🎌 3,776m 登頂へ！</span>
+    </div>
+  </div>
+  <!-- 富士山SVGシルエット -->
+  <svg class="fuji-svg" viewBox="0 0 800 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+    <defs>
+      <linearGradient id="snowGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+        <stop offset="100%" stop-color="#BFDBFE" stop-opacity="0.7"/>
+      </linearGradient>
+      <linearGradient id="mountainGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1E3A8A" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="#1E3A8A" stop-opacity="0.9"/>
+      </linearGradient>
+    </defs>
+    <!-- 山体 -->
+    <polygon points="400,10 100,180 700,180" fill="url(#mountainGrad)"/>
+    <!-- 雪 -->
+    <polygon points="400,10 340,60 460,60" fill="url(#snowGrad)"/>
+    <!-- 稜線の線 -->
+    <polyline points="400,10 340,60 300,90 200,140" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+    <polyline points="400,10 460,60 500,90 600,140" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  </svg>
+</header>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="#route">🏔️ ルート選定</a>
+    <a href="#access">🚗 アクセス</a>
+    <a href="#schedule">📅 スケジュール</a>
+    <a href="#packing">🎒 持ち物</a>
+    <a href="#spots">🌸 観光スポット</a>
+    <a href="#unagi">🐟 打ち上げ</a>
+    <a href="#safety">⚠️ 安全対策</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- 1. ROUTE REASON -->
+  <section id="route">
+    <div class="section-title">
+      <div class="icon">🏔️</div>
+      <div>なぜ「富士宮ルート」なの？</div>
+    </div>
+    <div class="reason-grid">
+      <div class="reason-card">
+        <div class="r-icon">⚡</div>
+        <h3>最短距離・最高標高スタート</h3>
+        <p>5合目（標高2,400m）から出発できる全4ルート中で最も標高の高い登山口。距離も最短クラスで体力の消耗を抑えられます。</p>
+      </div>
+      <div class="reason-card">
+        <div class="r-icon">🔄</div>
+        <h3>登り下り同じ道で安心</h3>
+        <p>往復同じルートを使うため迷いにくく、初心者・子供にやさしい。道標もわかりやすいので安心して進めます。</p>
+      </div>
+      <div class="reason-card">
+        <div class="r-icon">🏠</div>
+        <h3>山小屋が等間隔に点在</h3>
+        <p>各合目に山小屋があり休憩・トイレが確保しやすい。緊急時のシェルターとしても機能します。</p>
+      </div>
+      <div class="reason-card">
+        <div class="r-icon">🌊</div>
+        <h3>駿河湾の絶景を望める</h3>
+        <p>登りながら駿河湾を一望できる特等席ルート！晴れた日は伊豆半島まで見渡せる圧巻の景色です。</p>
+      </div>
+    </div>
+
+    <!-- 標高概念図 -->
+    <div class="altitude-chart">
+      <h4>📊 富士宮ルート 標高イメージ図</h4>
+      <div class="chart-wrap">
+        <div class="altitude-bars">
+          <div class="bar-item">
+            <div class="bar" style="height:52%">
+              <div class="bar-alt">2,400m</div>
+            </div>
+            <div class="bar-label">5合目<br>スタート</div>
+          </div>
+          <div class="bar-item">
+            <div class="bar" style="height:63%">
+              <div class="bar-alt">2,900m</div>
+            </div>
+            <div class="bar-label">6合目<br>休憩</div>
+          </div>
+          <div class="bar-item">
+            <div class="bar" style="height:74%">
+              <div class="bar-alt">3,010m</div>
+            </div>
+            <div class="bar-label">7合目<br>御来光山荘</div>
+          </div>
+          <div class="bar-item">
+            <div class="bar" style="height:84%">
+              <div class="bar-alt">3,250m</div>
+            </div>
+            <div class="bar-label">8合目<br>池田館</div>
+          </div>
+          <div class="bar-item">
+            <div class="bar" style="height:92%">
+              <div class="bar-alt">3,460m</div>
+            </div>
+            <div class="bar-label">9合目<br>万年雪山荘</div>
+          </div>
+          <div class="bar-item">
+            <div class="bar summit" style="height:100%">
+              <div class="bar-alt">3,776m 🎌</div>
+            </div>
+            <div class="bar-label">山頂<br>ゴール！</div>
+          </div>
+        </div>
+        <div class="arrow-path">
+          <span>▲ 登頂</span> 所要時間（登り）約 <span>5〜7時間</span>、（下り）約 <span>3〜4時間</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. ACCESS -->
+  <section id="access">
+    <div class="section-title">
+      <div class="icon">🚗</div>
+      <div>神戸からのアクセス比較</div>
+    </div>
+    <div class="access-table-wrap">
+      <table class="access-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>🚗 車（高速道路）</th>
+            <th>🚄 公共交通機関</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ルート</strong></td>
+            <td>神戸IC → 阪神高速 → 新名神 → 東名 → 新富士IC → 富士宮</td>
+            <td>新神戸 → 新幹線 → 静岡駅 or 新富士駅 → 富士急バス → 富士宮5合目</td>
+          </tr>
+          <tr>
+            <td><strong>所要時間</strong></td>
+            <td>約 <strong>5〜6時間</strong>（渋滞なし）<br><small>※お盆期間は+1〜2時間</small></td>
+            <td>新幹線：約 <strong>1.5〜2時間</strong><br>バス：約 <strong>1時間</strong><br>合計：約 <strong>3〜4時間</strong></td>
+          </tr>
+          <tr>
+            <td><strong>費用目安</strong><br><small>（大人1名）</small></td>
+            <td>高速代 約8,000〜10,000円<br>ガソリン代 割り勘<br>→ 1人あたり <strong>約3,000〜4,000円</strong></td>
+            <td>新幹線 約8,000〜12,000円<br>バス 約2,000〜3,000円<br>→ 合計 <strong>約10,000〜15,000円</strong></td>
+          </tr>
+          <tr>
+            <td><strong>メリット</strong></td>
+            <td>✅ 大人数なら断然コスパ良し<br>✅ 荷物をたっぷり積める<br>✅ 自由なタイムスケジュール<br>✅ 帰りに観光地に寄りやすい</td>
+            <td>✅ 渋滞ゼロで時間が読める<br>✅ 移動中にゆっくり休める<br>✅ 登山隊・観光隊が別行動しやすい<br>✅ 運転疲れなし</td>
+          </tr>
+          <tr>
+            <td><strong>デメリット</strong></td>
+            <td>❌ お盆の渋滞リスク大<br>❌ 運転者の負担<br>❌ 5合目のマイカー規制に注意</td>
+            <td>❌ 費用が割高<br>❌ 重い荷物の持ち運びが大変<br>❌ 乗り継ぎが必要</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip-box">
+      💡 <strong>登山隊と観光隊を別移動するワザ！</strong><br>
+      <br>
+      登山隊は新幹線で早出し → 早朝から登山開始。<br>
+      観光隊は朝ゆっくり車移動 → 渋滞のピークを避けて出発。<br>
+      「大人数で一台の車に詰め込む」より、役割に合わせた移動が快適でおすすめです！
+    </div>
+  </section>
+
+  <!-- 3. SCHEDULE -->
+  <section id="schedule">
+    <div class="section-title">
+      <div class="icon">📅</div>
+      <div>3日間のタイムスケジュール</div>
+    </div>
+
+    <!-- Day 1 -->
+    <div class="day-block">
+      <div class="day-header">
+        🚗 8/7（金） 移動日 〜 旅のはじまり！
+      </div>
+      <div class="teams-row">
+        <div class="team-col climb">
+          <div class="team-label label-climb">🏔️ 登山隊（4名）</div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-time">6:00〜7:00</div>
+              <div class="tl-text">🏠 <strong>神戸 出発</strong><br>早め出発で渋滞回避！</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">12:00〜13:00</div>
+              <div class="tl-text">🍜 <strong>富士宮 到着</strong><br>昼食（富士宮やきそば！）</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">14:00〜</div>
+              <div class="tl-text">🏨 <strong>宿泊先チェックイン</strong><br>翌日に備えて早めに休養</div>
+              <div class="tl-note">⚠️ 高度順応のため早寝推奨！</div>
+            </div>
+          </div>
+        </div>
+        <div class="team-col tour">
+          <div class="team-label label-tour">🌸 観光隊（4名）</div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-time">8:00〜9:00</div>
+              <div class="tl-text">🏠 <strong>神戸 出発</strong><br>ゆっくり朝食を食べてから</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">13:00〜14:00</div>
+              <div class="tl-text">🍜 <strong>富士宮 到着</strong><br>ランチは名物グルメを満喫</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">15:00〜</div>
+              <div class="tl-text">🏨 <strong>宿泊先チェックイン</strong><br>明日の観光スポットを計画</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day-block">
+      <div class="day-header day2">
+        🔥 8/8（土） 本番！ 〜 それぞれの冒険へ
+      </div>
+      <div class="teams-row">
+        <div class="team-col climb">
+          <div class="team-label label-climb">🏔️ 登山隊（4名）</div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-time">4:30</div>
+              <div class="tl-text">⏰ <strong>超早起き！出発準備</strong><br>朝食・準備・装備チェック</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">5:30〜6:00</div>
+              <div class="tl-text">🚌 <strong>シャトルバスで5合目へ</strong><br>※マイカー規制のためバス必須</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">6:30〜7:00</div>
+              <div class="tl-text">🌬️ <strong>5合目で高度順応（30分）</strong><br>準備体操・水分補給</div>
+              <div class="tl-note">⚠️ 急がず身体を慣らしてから！</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">7:00</div>
+              <div class="tl-text">🥾 <strong>登山スタート！</strong></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">10:00〜12:00</div>
+              <div class="tl-text">🏠 <strong>7〜8合目 到着・宿泊手続き</strong></div>
+              <div class="tl-note">🏨 御来光山荘（7合目）または<br>池田館（8合目）</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">14:00〜16:00</div>
+              <div class="tl-text">😴 <strong>山小屋で休憩・仮眠</strong><br>翌日のご来光に備えて体力温存！</div>
+            </div>
+          </div>
+        </div>
+        <div class="team-col tour">
+          <div class="team-label label-tour">🌸 観光隊（4名）</div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-time">8:30〜9:00</div>
+              <div class="tl-text">🍳 <strong>朝食・のんびり出発</strong><br>子供たちのペースで♪</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">9:30〜12:00</div>
+              <div class="tl-text">🐄 <strong>まかいの牧場</strong><br>乳搾り・動物ふれあい体験！</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">13:00</div>
+              <div class="tl-text">🍔 <strong>ランチ</strong></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">14:00〜16:30</div>
+              <div class="tl-text">🦉 <strong>富士花鳥園</strong><br>フクロウとふれあい・温室の花</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">17:00〜</div>
+              <div class="tl-text">🏨 <strong>宿泊先で夕食・就寝</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day-block">
+      <div class="day-header day3">
+        🎉 8/9（日） フィナーレ！ 〜 全員合流・打ち上げ
+      </div>
+      <div class="teams-row">
+        <div class="team-col climb">
+          <div class="team-label label-climb">🏔️ 登山隊（4名）</div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-time">深夜1:00〜2:00</div>
+              <div class="tl-text">⭐ <strong>起床・山頂へ出発</strong><br>ヘッドランプで夜の登山開始</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">4:30〜5:00</div>
+              <div class="tl-text">🌅 <strong>山頂 or 9合目付近でご来光！</strong><br>日本一高い場所で迎える夜明け✨</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">5:00〜6:00</div>
+              <div class="tl-text">🎌 <strong>山頂（3,776m）登頂！</strong><br>剣ヶ峰・お鉢めぐりも可能</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">6:30〜</div>
+              <div class="tl-text">🥾 <strong>下山開始</strong><br>慎重に・ゆっくり下りる</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">10:00〜12:00</div>
+              <div class="tl-text">✅ <strong>5合目 帰還！</strong><br>下山完了・シャトルバス乗車</div>
+            </div>
+          </div>
+        </div>
+        <div class="team-col tour">
+          <div class="team-label label-tour">🌸 観光隊（4名）</div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-time">8:00〜</div>
+              <div class="tl-text">🍳 <strong>朝食・ゆっくり準備</strong></div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">9:00〜11:30</div>
+              <div class="tl-text">🌊 <strong>白糸の滝 or 浅間大社</strong><br>午前中に最後の観光を楽しむ</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">12:30〜</div>
+              <div class="tl-text">🚌 <strong>5合目へ向けて出発</strong><br>シャトルバスで合流場所へ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 合流ボックス -->
+      <div class="merge-box">
+        <div class="big">🎉 13:00 ── 5合目で全員合流！！ 🎉</div>
+        <p>登山隊・観光隊それぞれの「大冒険」を語り合おう！<br>そしてみんなで打ち上げへGO 🚗💨</p>
+      </div>
+      <br>
+      <div class="teams-row" style="margin-top:0">
+        <div class="team-col all" style="grid-column: 1 / -1">
+          <div class="team-label label-all">🍻 全員集合！</div>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-time">15:00〜17:00</div>
+              <div class="tl-text">🐟 <strong>富士エリアの名店でウナギ打ち上げ！</strong><br>8名全員でお疲れ様ディナー🎊</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">18:00〜</div>
+              <div class="tl-text">🏠 <strong>神戸へ向けて帰路</strong><br>夕方出発で渋滞を避けて帰宅</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PACKING -->
+  <section id="packing">
+    <div class="section-title">
+      <div class="icon">🎒</div>
+      <div>持ち物チェックリスト</div>
+    </div>
+
+    <div class="check-group">
+      <div class="check-group-title">🏔️ 登山隊 共通装備</div>
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🥾 登山靴（防水・ハイカット推奨）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🧥 レインウェア（上下セパレート）<span class="tag">必須</span></div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🧤 防寒グローブ（山頂は夏でも5〜10℃）<span class="tag">必須</span></div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🧣 ネックウォーマー・帽子（防寒）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">💡 ヘッドランプ＋予備電池（ご来光登山に必須）<span class="tag">必須</span></div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">💧 水（最低1.5L）＋スポーツドリンク</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🍫 行動食（エナジーバー・チョコ・ナッツ・ゼリー）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🩹 救急セット（絆創膏・痛み止め・頭痛薬）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🧴 日焼け止め（SPF50+ 推奨）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🕶️ サングラス（紫外線が強い）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🪄 ストック（膝への負担を軽減）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">💰 現金（山小屋・トイレ有料 300〜500円）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">📱 スマホ＋モバイルバッテリー（充電済み）</div></label>
+      </div>
+    </div>
+
+    <div class="check-group orange">
+      <div class="check-group-title">🧒 小5男子（大輝くん？）向け 特記事項</div>
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">👕 レイヤリング3層：速乾Tシャツ → フリース → レインウェア<span class="tag">重要</span></div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🧥 ダウンジャケット（軽量・圧縮可能なもの）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🍬 子供の好きなお菓子・行動食（モチベ維持に大事！）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🎒 子供サイズのザック（10〜15L、自分の荷物は自分で）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🩺 高山病対策薬（医師に相談して準備）</div></label>
+      </div>
+      <div class="advice-box">
+        <strong>🎽 レイヤリングのコツ（小5向け）</strong>
+        ①速乾素材のTシャツ（汗冷え防止）→ ②フリースやソフトシェル（保温）→ ③防風・防水のレインウェア。山頂は真夏でも<strong>5〜10℃</strong>！コンビニのおにぎりより、チョコやゼリー飲料が行動食としておすすめ。「お腹すいたら山頂まで待たなくていい」とこまめな補給を心がけて。
+      </div>
+    </div>
+
+    <div class="check-group green">
+      <div class="check-group-title">🌸 観光隊（大人2名＋小3・小1）</div>
+      <div class="check-list">
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">👒 帽子（日除け）・サングラス</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🧴 日焼け止め</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">👟 動きやすいスニーカー（牧場・アスレチック向け）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">👶 着替え（牧場や水辺で汚れる可能性あり）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">📷 カメラ・スマホ（思い出をパシャリ📸）</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">🩹 子供用救急セット・虫除けスプレー</div></label>
+        <label class="check-item"><input type="checkbox"><div class="check-box"></div><div class="check-text">💧 水筒・飲み物（熱中症対策）</div></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SPOTS -->
+  <section id="spots">
+    <div class="section-title">
+      <div class="icon">🌸</div>
+      <div>観光隊おすすめスポット</div>
+    </div>
+    <div class="spots-grid">
+      <div class="spot-card">
+        <div class="spot-thumb s1">🐄</div>
+        <div class="spot-body">
+          <div class="spot-tag">子供大人気</div>
+          <h3>まかいの牧場</h3>
+          <p>乳搾り体験・動物ふれあい・アスレチックと盛りだくさん！小さな子供も大満足の牧場です。</p>
+        </div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-thumb s2">🦉</div>
+        <div class="spot-body">
+          <div class="spot-tag">フクロウと触れ合える</div>
+          <h3>富士花鳥園</h3>
+          <p>日本最大級のフクロウ展示と、富士山麓の花々が咲き誇る大温室。独特の雰囲気が魅力。</p>
+        </div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-thumb s3">💦</div>
+        <div class="spot-body">
+          <div class="spot-tag">世界遺産</div>
+          <h3>白糸ノ滝</h3>
+          <p>富士山の雪解け水が岩肌から湧き出す幻想的な滝。周辺は涼しく夏の散策に最適！</p>
+        </div>
+      </div>
+      <div class="spot-card">
+        <div class="spot-thumb s4">⛩️</div>
+        <div class="spot-body">
+          <div class="spot-tag">パワースポット</div>
+          <h3>富士山本宮浅間大社</h3>
+          <p>全国約1,300社の浅間神社の総本社。登山の安全祈願にも立ち寄りたい格式高い神社。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. UNAGI -->
+  <section id="unagi">
+    <div class="section-title">
+      <div class="icon">🐟</div>
+      <div>打ち上げ！富士エリアのウナギ名店</div>
+    </div>
+    <p style="font-size:14px;color:#6B7280;margin-bottom:20px;">🎊 登頂達成の打ち上げはやっぱりウナギ！富士エリアは良質なウナギが揃う名産地。全員で予約を忘れずに！</p>
+    <div class="unagi-grid">
+      <div class="unagi-card">
+        <div class="u-emoji">🐟</div>
+        <h3>うなよし</h3>
+        <p>富士宮エリアの老舗うなぎ店。ふっくらとした蒲焼きが絶品で地元でも人気の名店。</p>
+        <div class="u-area">📍 富士宮市エリア</div>
+      </div>
+      <div class="unagi-card">
+        <div class="u-emoji">🍱</div>
+        <h3>末廣 本店</h3>
+        <p>創業100年超の老舗。秘伝のタレが自慢で、地元ファンに長く愛されてきた一軒。</p>
+        <div class="u-area">📍 富士市エリア</div>
+      </div>
+      <div class="unagi-card">
+        <div class="u-emoji">🏮</div>
+        <h3>田子重 富士本店</h3>
+        <p>静岡県内で幅広く展開。ランチから夕食まで利用しやすく8名の大人数にも対応しやすい。</p>
+        <div class="u-area">📍 富士市エリア</div>
+      </div>
+      <div class="unagi-card">
+        <div class="u-emoji">🌿</div>
+        <h3>かわな野</h3>
+        <p>河口湖・富士五湖エリアの人気うなぎ店。富士山を望む立地で特別感ある打ち上げに。</p>
+        <div class="u-area">📍 富士吉田・河口湖エリア</div>
+      </div>
+    </div>
+    <div class="tip-box" style="margin-top:16px">
+      ⚠️ <strong>事前予約は絶対！</strong> 夏休みシーズンの8月はどの店も満席になりやすいです。<strong>7月中には8名分の予約</strong>を入れておきましょう！
+    </div>
+  </section>
+
+  <!-- 7. SAFETY -->
+  <section id="safety">
+    <div class="section-title">
+      <div class="icon">⚠️</div>
+      <div>安全への配慮</div>
+    </div>
+    <div class="safety-cards">
+
+      <div class="safety-card ams">
+        <h3>🌀 高山病対策</h3>
+        <ul>
+          <li><strong>症状：</strong>頭痛・吐き気・めまい・倦怠感など。2,500m以上で発症しやすい</li>
+          <li><strong>予防①：</strong>5合目着後 <strong>30分以上</strong> の高度順応タイムを必ず取る</li>
+          <li><strong>予防②：</strong>水分をこまめに補給（1時間あたり150〜200ml目安）</li>
+          <li><strong>予防③：</strong>「ゆっくりゆっくり」を合言葉に！急ぎすぎない</li>
+          <li><strong>対処法：</strong>症状が出たら<strong>すぐに下山</strong>。無理は厳禁。下がれば回復します</li>
+          <li><strong>子供注意：</strong>小学生は症状を言葉にしにくい場合も。「頭いたい？」と定期的に確認を</li>
+        </ul>
+      </div>
+
+      <div class="safety-card bus">
+        <h3>🚌 マイカー規制とシャトルバス</h3>
+        <ul>
+          <li><strong>規制期間：</strong>例年7月上旬〜9月上旬（2026年は要確認）</li>
+          <li><strong>対象：</strong>富士宮口5合目へのマイカー乗り入れは規制期間中は<strong>原則禁止</strong></li>
+          <li><strong>シャトルバス：</strong>富士宮市街地（水ヶ塚公園）から5合目まで運行</li>
+          <li><strong>料金目安：</strong>往復 大人1,700〜2,000円、子供 900〜1,100円（2025年実績）</li>
+          <li><strong>所要時間：</strong>約30〜40分</li>
+          <li>⚠️ 始発バスは<strong>混雑必至</strong>！乗り場には余裕を持って並ぶこと</li>
+        </ul>
+      </div>
+
+      <div class="safety-card kids">
+        <h3>🧒 子供連れ登山の注意点</h3>
+        <ul>
+          <li>小5（約10〜11歳）は富士登山に対応できる年齢ですが、無理をさせない</li>
+          <li>「引き返す勇気」を事前に伝えておく。目標は登頂より<strong>「楽しく安全に」</strong></li>
+          <li>コンパクトなおやつを30分おきに補給→エネルギー切れ防止</li>
+          <li>トイレは見かけたら必ず利用（山頂付近は間隔が長い）</li>
+          <li>暗い時間の登山は必ずヘッドランプ＋大人が前後につく</li>
+          <li>日焼けと風による体温低下に注意。防寒着は手が届くところに</li>
+        </ul>
+      </div>
+
+      <div class="safety-card emergency">
+        <h3>📞 緊急連絡先</h3>
+        <div class="emergency-contacts">
+          <div class="ec-row">
+            <span class="ec-name">🚨 緊急（警察・消防・救急）</span>
+            <span class="ec-num">110 / 119</span>
+          </div>
+          <div class="ec-row">
+            <span class="ec-name">🏔️ 富士山富士宮口総合案内所</span>
+            <span class="ec-num">0544-27-5240</span>
+          </div>
+          <div class="ec-row">
+            <span class="ec-name">🏥 富士宮市立病院</span>
+            <span class="ec-num">0544-27-3151</span>
+          </div>
+          <div class="ec-row">
+            <span class="ec-name">🚔 静岡県警山岳遭難救助隊</span>
+            <span class="ec-num">#9110</span>
+          </div>
+        </div>
+        <div style="font-size:13px;color:#9F1239;margin-top:12px;line-height:1.7">
+          📝 登山届は事前に提出を！<a href="https://www.mt-fuji.info" style="color:#E11D48">富士山オフィシャルサイト</a>でオンライン提出できます。
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="fuji-footer">🗻</div>
+  <p><strong>富士山登山旅行2026 🎌 旅のしおり</strong></p>
+  <p style="margin-top:6px">8月7日(金)〜8月9日(日) ／ 神戸 → 富士宮 ／ 全8名</p>
+  <p style="margin-top:12px;font-size:12px">「楽しく！安全に！みんなで！」登頂を目指そう 🏔️✨</p>
+</footer>
+
+<script>
+  // プログレスバー
+  window.addEventListener('scroll', () => {
+    const bar = document.getElementById('progressBar');
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    bar.style.width = (scrollTop / docHeight * 100) + '%';
+  });
+</script>
+</body>
+</html>
