@@ -614,6 +614,72 @@
   .ec-row .ec-name { font-weight: 700; color: #9F1239; }
   .ec-row .ec-num { font-family: monospace; font-size: 15px; font-weight: 700; color: var(--gray-900); }
 
+  /* ============ LINK BUTTONS ============ */
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--blue);
+    color: white !important;
+    border-radius: 100px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: opacity 0.2s;
+  }
+  .link-btn:hover { opacity: 0.75; }
+  .link-btn.green { background: var(--green); }
+  .link-btn.orange { background: var(--orange); }
+  .link-btn.gray { background: #6B7280; }
+
+  /* ============ ACCOMMODATION ============ */
+  .stay-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 480px) { .stay-grid { grid-template-columns: 1fr; } }
+
+  .stay-card {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1.5px solid var(--gray-200);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .stay-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .stay-thumb {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+  }
+  .stay-thumb.t1 { background: linear-gradient(135deg, #DBEAFE, #93C5FD); }
+  .stay-thumb.t2 { background: linear-gradient(135deg, #D1FAE5, #6EE7B7); }
+  .stay-thumb.t3 { background: linear-gradient(135deg, #FEF9C3, #FDE047); }
+  .stay-thumb.t4 { background: linear-gradient(135deg, #E9D5FF, #C084FC); }
+  .stay-body { padding: 12px 14px; }
+  .stay-body h3 { font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 4px; }
+  .stay-body p { font-size: 12px; color: var(--gray-700); line-height: 1.6; }
+  .stay-tag { display: inline-block; background: var(--blue-light); color: var(--blue-dark); font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 100px; margin-bottom: 6px; }
+  .stay-tag.green { background: var(--green-light); color: #065F46; }
+  .stay-tag.orange { background: var(--orange-light); color: #7C2D12; }
+
+  .night-header {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    padding: 8px 14px;
+    background: var(--blue-light);
+    border-radius: var(--radius-sm);
+    margin-bottom: 12px;
+    margin-top: 20px;
+  }
+  .night-header.green { background: var(--green-light); color: #065F46; }
+
   /* ============ FOOTER ============ */
   footer {
     text-align: center;
@@ -738,6 +804,7 @@
     <a href="#schedule">📅 スケジュール</a>
     <a href="#packing">🎒 持ち物</a>
     <a href="#spots">🌸 観光スポット</a>
+    <a href="#stay">🏨 宿泊候補</a>
     <a href="#unagi">🐟 打ち上げ</a>
     <a href="#safety">⚠️ 安全対策</a>
     <a href="#todo">📋 やることリスト</a>
@@ -950,7 +1017,7 @@
             <div class="tl-item">
               <div class="tl-time">10:00〜12:00</div>
               <div class="tl-text">🏠 <strong>7〜8合目 到着・宿泊手続き</strong></div>
-              <div class="tl-note">🏨 御来光山荘（7合目）または<br>池田館（8合目）</div>
+              <div class="tl-note">🏨 <a href="http://www.goraikousansou.com/" target="_blank" rel="noopener" style="color:var(--blue-dark);font-weight:700;">御来光山荘（7合目）</a> または<br><a href="http://www.fuji8.com/" target="_blank" rel="noopener" style="color:var(--blue-dark);font-weight:700;">池田館（8合目）</a></div>
             </div>
             <div class="tl-item">
               <div class="tl-time">14:00〜16:00</div>
@@ -975,7 +1042,7 @@
             </div>
             <div class="tl-item">
               <div class="tl-time">14:00〜16:30</div>
-              <div class="tl-text">🦉 <strong>富士花鳥園</strong><br>フクロウとふれあい・温室の花</div>
+              <div class="tl-text">🏞️ <strong>田貫湖 散策</strong><br>富士山を鏡映しにする絶景の湖！</div>
             </div>
             <div class="tl-item">
               <div class="tl-time">17:00〜</div>
@@ -1127,14 +1194,16 @@
           <div class="spot-tag">子供大人気</div>
           <h3>まかいの牧場</h3>
           <p>乳搾り体験・動物ふれあい・アスレチックと盛りだくさん！小さな子供も大満足の牧場です。</p>
+          <a class="link-btn green" href="https://www.makaino.com/" target="_blank" rel="noopener">🔗 公式サイト</a>
         </div>
       </div>
       <div class="spot-card">
-        <div class="spot-thumb s2">🦉</div>
+        <div class="spot-thumb s2">🏞️</div>
         <div class="spot-body">
-          <div class="spot-tag">フクロウと触れ合える</div>
-          <h3>富士花鳥園</h3>
-          <p>日本最大級のフクロウ展示と、富士山麓の花々が咲き誇る大温室。独特の雰囲気が魅力。</p>
+          <div class="spot-tag">絶景・自然</div>
+          <h3>田貫湖</h3>
+          <p>富士山の雄大な姿を水面に映す絶景スポット。湖畔散策・バードウォッチング・釣りも楽しめます。朝霧高原のすぐそばで夏も涼しい！</p>
+          <a class="link-btn green" href="https://shizuoka.hellonavi.jp/tanukiko" target="_blank" rel="noopener">🔗 観光情報</a>
         </div>
       </div>
       <div class="spot-card">
@@ -1143,6 +1212,7 @@
           <div class="spot-tag">世界遺産</div>
           <h3>白糸ノ滝</h3>
           <p>富士山の雪解け水が岩肌から湧き出す幻想的な滝。周辺は涼しく夏の散策に最適！</p>
+          <a class="link-btn green" href="https://fujinomiya.gr.jp/guide/170/" target="_blank" rel="noopener">🔗 観光協会</a>
         </div>
       </div>
       <div class="spot-card">
@@ -1151,8 +1221,67 @@
           <div class="spot-tag">パワースポット</div>
           <h3>富士山本宮浅間大社</h3>
           <p>全国約1,300社の浅間神社の総本社。登山の安全祈願にも立ち寄りたい格式高い神社。</p>
+          <a class="link-btn green" href="http://www.fuji-hongu.or.jp/" target="_blank" rel="noopener">🔗 公式サイト</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 5.5 STAY -->
+  <section id="stay">
+    <div class="section-title">
+      <div class="icon">🏨</div>
+      <div>観光隊の宿泊候補</div>
+    </div>
+    <p style="font-size:14px;color:#6B7280;margin-bottom:4px;">登山隊が山小屋に泊まる8/8（土）夜、観光隊は麓でどこに泊まる？富士宮エリアの宿泊候補をご紹介！</p>
+
+    <div class="night-header">🌙 8/7（金）夜 ── 全員で泊まれる宿（富士宮市内）</div>
+    <div class="stay-grid">
+      <div class="stay-card">
+        <div class="stay-thumb t1">🏢</div>
+        <div class="stay-body">
+          <div class="stay-tag">ビジネス＆ファミリー</div>
+          <h3>ホテルルートイン 富士宮</h3>
+          <p>富士宮駅から徒歩圏。大浴場あり・無料駐車場完備。大人数での利用もしやすいスタンダードホテル。</p>
+          <a class="link-btn" href="https://www.route-inn.co.jp/search/hotel/?hotel_id=519" target="_blank" rel="noopener">🔗 公式サイト</a>
+        </div>
+      </div>
+      <div class="stay-card">
+        <div class="stay-thumb t2">🛖</div>
+        <div class="stay-body">
+          <div class="stay-tag">富士山ビュー</div>
+          <h3>朝霧高原エリアの宿</h3>
+          <p>まかいの牧場・田貫湖に近く翌日の観光がスムーズ。富士山を望む部屋や露天風呂がある宿も。</p>
+          <a class="link-btn green" href="https://www.jalan.net/ranking/yado/SML_212308.html" target="_blank" rel="noopener">🔗 じゃらんで探す</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="night-header green">🌙 8/8（土）夜 ── 観光隊のみ（4名）</div>
+    <div class="stay-grid">
+      <div class="stay-card">
+        <div class="stay-thumb t3">🌅</div>
+        <div class="stay-body">
+          <div class="stay-tag">絶景・湖畔</div>
+          <h3>田貫湖畔の宿（休暇村 富士）</h3>
+          <p>田貫湖のほとり、全室富士山ビューの絶景旅館。国立公園内の自然を満喫できる子供に人気の宿。翌朝のダイヤモンド富士も有名！</p>
+          <a class="link-btn orange" href="https://www.qkamura.or.jp/fuji/" target="_blank" rel="noopener">🔗 公式サイト</a>
+        </div>
+      </div>
+      <div class="stay-card">
+        <div class="stay-thumb t4">🌿</div>
+        <div class="stay-body">
+          <div class="stay-tag">自然体験</div>
+          <h3>ふもとっぱら（キャンプ）</h3>
+          <p>富士山麓の絶景キャンプ場。「ゆるキャン△」の舞台としても有名。コテージもあり家族連れでも安心。非日常感たっぷり！</p>
+          <a class="link-btn green" href="https://fumotoppara.net/" target="_blank" rel="noopener">🔗 公式サイト</a>
+        </div>
+      </div>
+    </div>
+    <div class="tip-box">
+      💡 <strong>予約のコツ：</strong> 8/8の宿は観光隊4名（大人2名・小3男子・小1女子）で探してください。<br>
+      <a href="https://travel.rakuten.co.jp/yado/shizuoka/fuji.html" target="_blank" rel="noopener" style="color:var(--blue);font-weight:700;">楽天トラベルで探す →</a>
+      <a href="https://www.jalan.net/ranking/yado/SML_212308.html" target="_blank" rel="noopener" style="color:var(--blue);font-weight:700;">じゃらんで探す →</a>
     </div>
   </section>
 
@@ -1166,27 +1295,31 @@
     <div class="unagi-grid">
       <div class="unagi-card">
         <div class="u-emoji">🐟</div>
-        <h3>うなよし</h3>
-        <p>富士宮エリアの老舗うなぎ店。ふっくらとした蒲焼きが絶品で地元でも人気の名店。</p>
-        <div class="u-area">📍 富士宮市エリア</div>
+        <h3>うな政 富士宮店</h3>
+        <p>本格炭火焼きの鰻が手頃な価格で楽しめると地元でも評判の人気店。富士宮市内でアクセス良好。</p>
+        <div class="u-area">📍 富士宮市小泉</div>
+        <a class="link-btn orange" href="https://tabelog.com/shizuoka/C22207/rstLst/unagi/" target="_blank" rel="noopener">🔗 食べログで確認</a>
       </div>
       <div class="unagi-card">
         <div class="u-emoji">🍱</div>
-        <h3>末廣 本店</h3>
-        <p>創業100年超の老舗。秘伝のタレが自慢で、地元ファンに長く愛されてきた一軒。</p>
+        <h3>うなぎ屋 主水（もんど）</h3>
+        <p>富士市の老舗うなぎ店。地元の皆様に長年愛される一軒で、国産鰻を丁寧に焼き上げた江戸焼きが絶品。</p>
         <div class="u-area">📍 富士市エリア</div>
+        <a class="link-btn orange" href="https://www.unagi-mondo.com/" target="_blank" rel="noopener">🔗 公式サイト</a>
       </div>
       <div class="unagi-card">
         <div class="u-emoji">🏮</div>
-        <h3>田子重 富士本店</h3>
-        <p>静岡県内で幅広く展開。ランチから夕食まで利用しやすく8名の大人数にも対応しやすい。</p>
+        <h3>うなぎや（富士市）</h3>
+        <p>昭和50年創業の老舗。国産活鰻を一尾ずつ丁寧に仕込む。タレに染み込んだ蒲焼きが評判。</p>
         <div class="u-area">📍 富士市エリア</div>
+        <a class="link-btn orange" href="http://fujiunagiya.com/" target="_blank" rel="noopener">🔗 公式サイト</a>
       </div>
       <div class="unagi-card">
         <div class="u-emoji">🌿</div>
-        <h3>かわな野</h3>
-        <p>河口湖・富士五湖エリアの人気うなぎ店。富士山を望む立地で特別感ある打ち上げに。</p>
-        <div class="u-area">📍 富士吉田・河口湖エリア</div>
+        <h3>富士・富士宮のうなぎ特集</h3>
+        <p>Rettyで富士・富士宮エリアのうなぎ人気店を一覧で確認。8名での利用可否は事前に電話確認を！</p>
+        <div class="u-area">📍 富士・富士宮エリア一覧</div>
+        <a class="link-btn orange" href="https://retty.me/area/PRE22/ARE328/LCAT2/CAT70/" target="_blank" rel="noopener">🔗 Rettyで探す</a>
       </div>
     </div>
     <div class="tip-box" style="margin-top:16px">
@@ -1311,7 +1444,7 @@
           </div>
         </label>
         <label class="check-item"><input type="checkbox"><div class="check-box"></div>
-          <div class="check-text">🌾 <strong>まかいの牧場・富士花鳥園の事前チケット確認</strong><br>
+          <div class="check-text">🌾 <strong>まかいの牧場の事前チケット確認</strong><br>
             <span style="font-size:12px;color:#6B7280">混雑期はオンライン予約・前売り券がお得な場合あり。</span>
           </div>
         </label>
